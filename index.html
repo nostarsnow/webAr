@@ -128,15 +128,15 @@ window.addEventListener('resize', function() {
 $("#tip").fadeIn(300);
 setTimeout(function() {
     onResize();
+}, 1000);
+setTimeout(function() {
+    $("#tip").fadeOut(1000);
     $("#textToDisplay").hide();
     $("a-scene").css({
         "z-index" : "initial",
         "background" : "transparent"
     })
-}, 1000);
-setTimeout(function() {
-    $("#tip").fadeOut(300);
-}, 2500);
+}, 2000);
 // Put variables in global scope to make them available to the browser console.
 var constraints = window.constraints = {
     audio: false,
