@@ -31,7 +31,7 @@
                 el.setAttribute('visible', false);
                 data.target.setAttribute('visible', true);
                 setTimeout(function() {
-                    $("#tip").html('恭喜您获得一只鸡！<br/>游戏重启中...').fadeIn(300);
+                    $("#tip").html('恭喜您获得一只鸡！').fadeIn(300);
                 }, 2000);
                 setTimeout(function() {
                     window.location.href = window.location.href;
@@ -144,7 +144,6 @@ setTimeout(function() {
     })
     $("#tip").fadeOut(300);
 }, 4000);
-
 // Put variables in global scope to make them available to the browser console.
 var constraints = window.constraints = {
     audio: false,
