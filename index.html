@@ -45,6 +45,7 @@
         position: absolute;
         z-index: -1;
         background: transparent;
+        visibility: hidden;
     }
     
     #videoBg {
@@ -55,10 +56,32 @@
         bottom: 0;
         z-index: -1;
     }
+    #tip{
+        position: absolute;
+        left: 0;
+        top: 50%;
+        right: 0;
+        z-index: 77;
+        width:92%;
+        padding:20px 0;
+        line-height: 2;
+        text-align: center;
+        background: rgba(0,0,0,.7);
+        color:#fff;
+        display: none;
+        margin:auto;
+        font-size: 16px;
+        border-radius: 5px;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
     </style>
 </head>
 
 <body>
+    <div id="tip">请在周围四处寻找一只鸡蛋。
+    <br/>并将屏幕中间的小圆圈对准Ta。。。
+    <br/>开始吧！</div>
     <div id="textToDisplay"><img src="./img/ball/egg.png" alt=""></div>
     <a-scene>
         <!--<a-sky src="./img/bg/1.jpg"></a-sky>-->
@@ -97,11 +120,13 @@ function onResize() {
 window.addEventListener('resize', function() {
     onResize();
 });
+$("#tip").fadeIn(300);
 setTimeout(function() {
     onResize();
-    $('#textToDisplay').hide();
 }, 1000);
-
+setTimeout(function() {
+    $("#tip").fadeOut(300);
+}, 2500);
 // Put variables in global scope to make them available to the browser console.
 var constraints = window.constraints = {
     audio: false,
