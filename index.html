@@ -34,7 +34,7 @@
                     $("#tip").html('恭喜您获得一只鸡！<br/>游戏重启中...').fadeIn(300);
                 }, 2000);
                 setTimeout(function() {
-                    window.location.reload();
+                    window.location.href = window.location.href;
                 }, 6000);
             });
         }
