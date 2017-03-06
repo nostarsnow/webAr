@@ -31,8 +31,11 @@
                 el.setAttribute('visible', false);
                 data.target.setAttribute('visible', true);
                 setTimeout(function() {
-                    alert('恭喜您获得一只鸡！');
+                    $("#tip").html('恭喜您获得一只鸡！').fadeIn(300);
                 }, 3000);
+                setTimeout(function() {
+                    $("#tip").fadeOut(300);
+                }, 6000);
             });
         }
     });
