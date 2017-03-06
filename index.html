@@ -45,9 +45,14 @@
         position: absolute;
         z-index: -1;
         background: transparent;
-        visibility: hidden;
     }
-    
+    body{
+        background:#f287a7;
+    }
+    a-scene{
+        background:#f287a7;
+        z-index: 1;
+    }
     #videoBg {
         position: absolute;
         left: 0;
@@ -85,7 +90,7 @@
     <div id="textToDisplay"><img src="./img/ball/egg.png" alt=""></div>
     <a-scene>
         <!--<a-sky src="./img/bg/1.jpg"></a-sky>-->
-        <a-sky id="sky" color="#85b1f7" opacity="0.2"></a-sky>
+        <a-sky id="sky" color="#85b1f7" opacity="0"></a-sky>
         <a-entity hide-on-click="target:#chickenAnimate">
             <a-entity id="default_egg" geometry="primitive:plane;width:2;height:2;" look-at="[camera]" position="-3 2 -10" material="shader:html;target:#textToDisplay;transparent:true;fps:0;">
             </a-entity>
@@ -123,6 +128,11 @@ window.addEventListener('resize', function() {
 $("#tip").fadeIn(300);
 setTimeout(function() {
     onResize();
+    $("#textToDisplay").hide();
+    $("a-scene").css({
+        "z-index" : "initial",
+        "background" : "transparent"
+    })
 }, 1000);
 setTimeout(function() {
     $("#tip").fadeOut(300);
