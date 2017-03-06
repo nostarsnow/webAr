@@ -132,7 +132,9 @@ $("#tip").fadeIn(300);
 setTimeout(function() {
     onResize();
 }, 1000);
-$("#textToDisplay img")[0].onload = function(){
+var egg = new Image();
+egg.src = $("#textToDisplay img")[0].src;
+egg.onload = function(){
     $("#textToDisplay").hide();
     $("a-scene").css({
         "z-index" : "initial",
