@@ -132,13 +132,13 @@ $("#tip").fadeIn(300);
 setTimeout(function() {
     onResize();
 }, 1000);
-setTimeout(function() {
+$("#textToDisplay img")[0].onload = function(){
     $("#textToDisplay").hide();
     $("a-scene").css({
         "z-index" : "initial",
         "background" : "transparent"
     })
-}, 2000);
+};
 setTimeout(function() {
     $("#tip").fadeOut(300);
 }, 4000);
