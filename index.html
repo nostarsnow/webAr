@@ -31,10 +31,10 @@
                 el.setAttribute('visible', false);
                 data.target.setAttribute('visible', true);
                 setTimeout(function() {
-                    $("#tip").html('恭喜您获得一只鸡！').fadeIn(300);
+                    $("#tip").html('恭喜您获得一只鸡！<br/>游戏重启中...').fadeIn(300);
                 }, 2000);
                 setTimeout(function() {
-                    $("#tip").fadeOut(300);
+                    window.location.reload();
                 }, 6000);
             });
         }
@@ -103,7 +103,7 @@
         </a-entity>
         <!-- Camera + cursor. -->
         <a-entity camera look-controls>
-            <a-cursor id="cursor" animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500" event-set__1="_event: mouseenter; color: #f287a7" event-set__2="_event: mouseleave; color: #f287a7"></a-cursor>
+            <a-cursor id="cursor" material="color: #f287a7" animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500" event-set__1="_event: mouseenter; color: green" event-set__2="_event: mouseleave; color: #f287a7"></a-cursor>
         </a-entity>
     </a-scene>
 </body>
@@ -133,13 +133,16 @@ setTimeout(function() {
     onResize();
 }, 1000);
 setTimeout(function() {
-    $("#tip").fadeOut(1000);
     $("#textToDisplay").hide();
     $("a-scene").css({
         "z-index" : "initial",
         "background" : "transparent"
     })
 }, 2000);
+setTimeout(function() {
+    $("#tip").fadeOut(300);
+}, 4000);
+    
 // Put variables in global scope to make them available to the browser console.
 var constraints = window.constraints = {
     audio: false,
