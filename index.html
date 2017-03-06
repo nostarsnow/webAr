@@ -135,12 +135,13 @@ setTimeout(function() {
 var egg = new Image();
 egg.src = $("#textToDisplay img")[0].src;
 egg.onload = function(){
-    alert(1);
-    $("#textToDisplay").hide();
-    $("a-scene").css({
-        "z-index" : "initial",
-        "background" : "transparenth "
-    })
+    setTimeout(function(){
+        $("#textToDisplay").hide();
+        $("a-scene").css({
+            "z-index" : "initial",
+            "background" : "transparenth "
+        })
+    },1000)
 };
 setTimeout(function() {
     $("#tip").fadeOut(300);
