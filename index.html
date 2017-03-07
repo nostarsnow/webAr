@@ -27,6 +27,10 @@
         init: function() {
             var data = this.data;
             var el = this.el;
+            $("a-scene").css({
+                "z-index": "initial",
+                "background": "transparent"
+            })
             el.addEventListener('click', function() {
                 el.setAttribute('visible', false);
                 data.target.setAttribute('visible', true);
@@ -132,7 +136,7 @@ function onResize() {
 window.addEventListener('resize', function() {
     onResize();
 });
-$("#tip").fadeIn(300).on("click",function(){
+$("#tip").fadeIn(300).on("click", function() {
     $("#tip").fadeOut(300);
 })
 setTimeout(function() {
@@ -141,10 +145,6 @@ setTimeout(function() {
 $("#textToDisplay img")[0].onload = function() {
     setTimeout(function() {
         $("#textToDisplay").hide();
-        $("a-scene").css({
-            "z-index": "initial",
-            "background": "initial"
-        })
     }, 1000)
 
 }
