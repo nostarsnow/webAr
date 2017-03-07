@@ -141,8 +141,9 @@ setTimeout(function() {
 var egg = new Image();
 egg.src = $("#textToDisplay img")[0].src;
 egg.onload = function() {
+    alert(1)
     setTimeout(function() {
-        alert(1)
+        
         $("#textToDisplay").hide();
         $("a-scene").css({
             "z-index": "initial",
