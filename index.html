@@ -132,7 +132,9 @@ function onResize() {
 window.addEventListener('resize', function() {
     onResize();
 });
-$("#tip").fadeIn(300);
+$("#tip").fadeIn(300).on("click",function(){
+    $("#tip").fadeOut(300);
+})
 setTimeout(function() {
     onResize();
 }, 1000);
@@ -141,7 +143,7 @@ $("#textToDisplay img")[0].onload = function() {
         $("#textToDisplay").hide();
         $("a-scene").css({
             "z-index": "initial",
-            "background": "transparent"
+            "background": "initial"
         })
     }, 1000)
 
