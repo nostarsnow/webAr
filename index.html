@@ -137,6 +137,7 @@ setTimeout(function() {
     onResize();
 }, 1000);
 $("#textToDisplay img")[0].onload = function() {
+    alert(1);
     $("#textToDisplay").hide();
     $("a-scene").css({
         "z-index": "initial",
