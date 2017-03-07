@@ -51,7 +51,7 @@
     }
     
     body {
-        background: #f287a7;
+        background: green;
     }
     
     a-scene {
@@ -137,12 +137,14 @@ setTimeout(function() {
     onResize();
 }, 1000);
 $("#textToDisplay img")[0].onload = function() {
-    alert(1);
-    $("#textToDisplay").hide();
-    $("a-scene").css({
-        "z-index": "initial",
-        "background": "transparent"
-    })
+    setTimeout(function() {
+        $("#textToDisplay").hide();
+        $("a-scene").css({
+            "z-index": "initial",
+            "background": "transparent"
+        })
+    }, 1000)
+
 }
 setTimeout(function() {
     $("#tip").fadeOut(300);
@@ -195,8 +197,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     then(handleSuccess).catch(handleError);
 } else {
     // 不支持调用摄像头的时候，使用默认场景，小树林。
-    $('#sky').attr('src', ["./img/bg/1.jpg","./img/bg/2.jpg","./img/bg/3.jpg","./img/bg/4.jpg","./img/bg/5.jpg","./img/bg/6.jpg"
-        ][Math.floor(Math.random() * 6)])
+    $('#sky').attr('src', ["./img/bg/1.jpg", "./img/bg/2.jpg", "./img/bg/3.jpg", "./img/bg/4.jpg", "./img/bg/5.jpg", "./img/bg/6.jpg"][Math.floor(Math.random() * 6)])
         .removeAttr('opacity')
         .removeAttr('color');
 }
