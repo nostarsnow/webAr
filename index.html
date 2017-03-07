@@ -27,11 +27,6 @@
         init: function() {
             var data = this.data;
             var el = this.el;
-            $("#textToDisplay").hide();
-            $("a-scene").css({
-                "z-index": "initial",
-                "background": "transparent"
-            })
             el.addEventListener('click', function() {
                 el.setAttribute('visible', false);
                 data.target.setAttribute('visible', true);
@@ -141,6 +136,13 @@ $("#tip").fadeIn(300);
 setTimeout(function() {
     onResize();
 }, 1000);
+$("#textToDisplay img")[0].onload = function() {
+    $("#textToDisplay").hide();
+    $("a-scene").css({
+        "z-index": "initial",
+        "background": "transparent"
+    })
+}
 setTimeout(function() {
     $("#tip").fadeOut(300);
 }, 4000);
@@ -192,15 +194,13 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     then(handleSuccess).catch(handleError);
 } else {
     // 不支持调用摄像头的时候，使用默认场景，小树林。
-    $('#sky').attr('src',
-        ["http://wx3.sinaimg.cn/mw690/4d227521ly1fde2fg25o8j218g0m8ttt.jpg",
-        "http://wx2.sinaimg.cn/mw690/4d227521ly1fde2f2n6ixj218g0m8qpl.jpg",
-        "http://wx3.sinaimg.cn/mw690/4d227521ly1fde2f0bldtj20sg0e8n9x.jpg",
-        "http://wx1.sinaimg.cn/mw690/4d227521ly1fde2exnpg5j218g0m8dqn.jpg",
-        "http://wx3.sinaimg.cn/mw690/4d227521ly1fde2evao8cj218g0m8tje.jpg",
-        "http://wx4.sinaimg.cn/mw690/4d227521ly1fde2er7kzjj218g0m87s1.jpg"
-        ][Math.floor(Math.random()*6)]
-        )
+    $('#sky').attr('src', ["http://wx3.sinaimg.cn/mw690/4d227521ly1fde2fg25o8j218g0m8ttt.jpg",
+            "http://wx2.sinaimg.cn/mw690/4d227521ly1fde2f2n6ixj218g0m8qpl.jpg",
+            "http://wx3.sinaimg.cn/mw690/4d227521ly1fde2f0bldtj20sg0e8n9x.jpg",
+            "http://wx1.sinaimg.cn/mw690/4d227521ly1fde2exnpg5j218g0m8dqn.jpg",
+            "http://wx3.sinaimg.cn/mw690/4d227521ly1fde2evao8cj218g0m8tje.jpg",
+            "http://wx4.sinaimg.cn/mw690/4d227521ly1fde2er7kzjj218g0m87s1.jpg"
+        ][Math.floor(Math.random() * 6)])
         .removeAttr('opacity')
         .removeAttr('color');
 }
