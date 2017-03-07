@@ -27,6 +27,7 @@
         init: function() {
             var data = this.data;
             var el = this.el;
+            el.setAttribute('visible', true);
             el.addEventListener('click', function() {
                 el.setAttribute('visible', false);
                 data.target.setAttribute('visible', true);
