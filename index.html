@@ -138,7 +138,9 @@ $("#tip").fadeIn(300).on("click", function() {
 setTimeout(function() {
     onResize();
 }, 1000);
-$("#textToDisplay img")[0].onload = function() {
+var egg = new Image();
+egg.src = $("#textToDisplay img")[0].src;
+egg.onload = function() {
     setTimeout(function() {
         alert(1)
         $("#textToDisplay").hide();
