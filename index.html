@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>webAr</title>
-    <link rel=icon href=http://wx2.sinaimg.cn/mw690/4d227521ly1fcoq8d7jpzj200g00g743.jpg>
+    <link rel=icon href=https://wx2.sinaimg.cn/mw690/4d227521ly1fcoq8d7jpzj200g00g743.jpg>
     <script src="./js/aframe.min.js"></script>
-    <script src="./js/aframe-animation-component@3.0.1"></script>
-    <script src="./js/aframe-event-set-component@3.0.1"></script>
-    <script src="./js/aframe-layout-component@3.0.1"></script>
+    <script src="./js/aframe-animation-component@3.0.1.js"></script>
+    <script src="./js/aframe-event-set-component@3.0.1.js"></script>
+    <script src="./js/aframe-layout-component@3.0.1.js"></script>
     <script src="./js/aframe-html-shader.min.js"></script>
     <script src="./js/aframe-gif-shader.js"></script>
     <script src="./js/aframe-look-at-component.min.js"></script>
@@ -163,7 +163,7 @@ var constraints = window.constraints = {
         }
     }
 };
-
+var imgList = ['https://wx1.sinaimg.cn/mw1024/4d227521ly1fxpaoex5ofj218g0m87s1.jpg','https://wx3.sinaimg.cn/mw1024/4d227521ly1fxpaoed6i4j218g0m8tje.jpg','https://wx3.sinaimg.cn/mw1024/4d227521ly1fxpaoedo5xj218g0m8dqn.jpg','https://wx1.sinaimg.cn/mw1024/4d227521ly1fxpaoegum9j20sg0e8n9x.jpg','https://wx1.sinaimg.cn/mw1024/4d227521ly1fxpaoekde1j218g0m8qpl.jpg','https://wx1.sinaimg.cn/mw1024/4d227521ly1fxpaoejfw8j218g0m8ttt.jpg'] || ["./img/bg/1.jpg", "./img/bg/2.jpg", "./img/bg/3.jpg", "./img/bg/4.jpg", "./img/bg/5.jpg", "./img/bg/6.jpg"];
 function handleSuccess(stream) {
     var videoTracks = stream.getVideoTracks();
     console.log('Got stream with constraints:', constraints);
@@ -188,6 +188,9 @@ function handleError(error) {
             'order for the demo to work.');
     }
     errorMsg('getUserMedia error: ' + error.name, error);
+    $('#sky').attr('src', imgList[Math.floor(Math.random() * 6)])
+        .removeAttr('opacity')
+        .removeAttr('color');
 }
 
 function errorMsg(msg, error) {
@@ -202,7 +205,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     then(handleSuccess).catch(handleError);
 } else {
     // 不支持调用摄像头的时候，使用默认场景，小树林。
-    $('#sky').attr('src', ["./img/bg/1.jpg", "./img/bg/2.jpg", "./img/bg/3.jpg", "./img/bg/4.jpg", "./img/bg/5.jpg", "./img/bg/6.jpg"][Math.floor(Math.random() * 6)])
+    $('#sky').attr('src', imgList[Math.floor(Math.random() * 6)])
         .removeAttr('opacity')
         .removeAttr('color');
 }
